@@ -16,6 +16,10 @@ const withGlobalState = WrappedComponent => {
       value: null
     }
 
+    syncStateWithGlobalState = value => {
+      this.setState({ value })
+    }
+
     componentWillMount () {
       this.setState({
         value: this.context.globalState.getState()
@@ -23,13 +27,11 @@ const withGlobalState = WrappedComponent => {
     }
 
     componentDidMount () {
-      this.unsubscribe = this.context.globalState.subscribe(value => {
-        this.setState({ value })
-      })
+      this.context.globalState.subscribe(this.syncStateWithGlobalState)
     }
 
     componentWillUnmount () {
-      this.unsubscribe()
+      this.context.globalState.unsubscribe(this.syncStateWithGlobalState)
     }
 
     render () {

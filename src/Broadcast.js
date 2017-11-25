@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
-import createGlobalState from './createGlobalState'
+import GlobalState from './GlobalState'
 
 class Broadcast extends Component {
   static displayName = 'GlobalStateBroadcast'
@@ -15,7 +15,7 @@ class Broadcast extends Component {
     createSetGlobalState: PropTypes.func.isRequired
   }
 
-  globalState = createGlobalState(this.props.globalState)
+  globalState = new GlobalState(this.props.globalState)
 
   getChildContext () {
     return {
