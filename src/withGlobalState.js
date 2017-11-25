@@ -12,18 +12,14 @@ const withGlobalState = WrappedComponent => {
       createSetGlobalState: PropTypes.func.isRequired
     }
 
-    state = {
-      value: null
-    }
+    state = null
 
-    syncStateWithGlobalState = value => {
-      this.setState({ value })
+    syncStateWithGlobalState = globalState => {
+      this.setState(globalState)
     }
 
     componentWillMount () {
-      this.setState({
-        value: this.context.globalState.getState()
-      })
+      this.setState(this.context.globalState.getState())
     }
 
     componentDidMount () {
@@ -38,7 +34,7 @@ const withGlobalState = WrappedComponent => {
       return (
         <WrappedComponent
           {...this.props}
-          globalState={this.state.value}
+          globalState={this.state}
           setGlobalState={this.context.createSetGlobalState(this.props)}
         />
       )
