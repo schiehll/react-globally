@@ -1,6 +1,10 @@
 # react-globally
 > Gives you setGlobalState, so you can set state globally
 
+[![travis build](https://img.shields.io/travis/schiehll/react-globally.svg?style=flat-square)](https://travis-ci.org/schiehll/react-globally)
+[![version](https://img.shields.io/npm/v/react-globally.svg?style=flat-square)](http://npm.im/react-globally)
+
+
 ## The problem
 
 Sometimes you have to pass some props way down the tree so a Component can somehow comunicate with another Component down in another branch of that tree.
