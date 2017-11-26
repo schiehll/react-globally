@@ -40,7 +40,9 @@
     "babel-preset-stage-1": "^6.24.1",
     "jest-cli": "^21.2.1",
     "pascal-case": "^2.0.1",
+    "raf": "^3.4.0",
     "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "rollup": "^0.52.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
@@ -63,9 +65,13 @@
     ]
   },
   "jest": {
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/scripts/"
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.spec.js",
+      "!src/**/index.js"
+    ],
+    "setupFiles": [
+      "./node_modules/raf/polyfill"
     ]
   }
 }
