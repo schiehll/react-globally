@@ -4,14 +4,7 @@
 [![travis build](https://img.shields.io/travis/schiehll/react-globally.svg?style=flat-square)](https://travis-ci.org/schiehll/react-globally)
 [![version](https://img.shields.io/npm/v/react-globally.svg?style=flat-square)](http://npm.im/react-globally)
 
-
-## The problem
-
-Sometimes you have to pass some props way down the tree so a Component can somehow comunicate with another Component down in another branch of that tree.
-
-That's tedious! And sometimes hard to maintain.
-
-## This solution
+## What is this?
 
 This lib gives you two things:
 
@@ -21,7 +14,13 @@ This lib gives you two things:
 You receive both via props wrapping any component with the `withGlobalState` function.
 To use `withGlobalState`, you will have to wrap your app with a `Provider` that receives the initial state.
 
-This way you can use `setState` to manage the local state of a Component and `setGlobalState` to manage the global state with the same API. That's it!
+This way you can use `setState` to manage the local state of a Component and `setGlobalState` to manage the global state with the same API.
+
+## Key benefits
+
+- **No need to learn a new API**: If you know how to use `setState`, you know how to use `setGlobalState`
+- **Simplicity**: Just wrap your components with a function and that's it
+- **Progressive**: Start with `setState`, if there's the need, change it to `setGlobalState`
 
 ## Installation
 
@@ -29,6 +28,18 @@ You can install it via npm:
 
 ```bash
 npm install --save react-globally
+```
+
+## CDN
+
+If you prefer to exclude react-globally from your application and use it globally via window.ReactGlobally, the react-globally package provides single-file distributions via [unpkg](https://unpkg.com):
+
+```html
+<!-- development version -->
+<script src="https://unpkg.com/react-globally@latest/dist/umd/react-globally.js"></script>
+
+<!-- production version -->
+<script src="https://unpkg.com/react-globally@latest/dist/umd/react-globally.min.js"></script>
 ```
 
 ## Usage
@@ -124,6 +135,12 @@ const CounterInfo = (props) => {
 
 export default withGlobalState(CounterInfo)
 ```
+
+## Reusing your code
+
+You can extract your `setState` and/or `setGlobalState` calls to pure functions, reusing and testing them in isolation.
+
+See this [tweet](https://twitter.com/dan_abramov/status/824308413559668744) from Dan Abramov.
 
 ## Other solutions
 
