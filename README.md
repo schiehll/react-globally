@@ -3,7 +3,7 @@
 
 ## The problem
 
-Sometimes you have to pass some props way drown the tree so a Component can somehow comunicate with another Component down in another branch of that tree.
+Sometimes you have to pass some props way down the tree so a Component can somehow comunicate with another Component down in another branch of that tree.
 
 That's tedious! And sometimes hard to maintain.
 
@@ -17,7 +17,7 @@ This lib gives you two things:
 You receive both via props wrapping any component with the `withGlobalState` function.
 To use `withGlobalState`, you will have to wrap your app with a `Provider` that receives the initial state.
 
-This way you can use `setState` to manage the local state of a Component and `setGlobalState` to manage the global state woth teh same API. That's it!
+This way you can use `setState` to manage the local state of a Component and `setGlobalState` to manage the global state with the same API. That's it!
 
 ## Installation
 
@@ -29,7 +29,7 @@ npm install --save react-globally
 
 ## Usage
 
-First you have to wrap you app with the `Provider` given it teh initial state:
+First you have to wrap your app with the `Provider` giving it the initial state:
 
 ```js
 // index.js
@@ -82,7 +82,7 @@ class CounterControls extends React.Component  {
     }))
   }
 
-  setToZero = () => {
+  zero = () => {
     this.props.setGlobalState({
       counter: 0
     })
@@ -93,7 +93,7 @@ class CounterControls extends React.Component  {
       <div>
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
-        <button onClick={this.setToZero}>Set to 0</button>
+        <button onClick={this.zero}>Set to Zero</button>
       </div>
     )
   }
@@ -121,3 +121,7 @@ const CounterInfo = (props) => {
 export default withGlobalState(CounterInfo)
 ```
 
+## Other solutions
+
+- [Redux](https://github.com/reactjs/redux/)
+- [MobX](https://github.com/mobxjs/mobx)
