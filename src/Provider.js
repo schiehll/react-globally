@@ -10,11 +10,15 @@ class Provider extends Component {
   state = this.props.globalState
 
   createSetGlobalState = props => {
-    return updater => {
+    return (updater, callback) => {
       if (updater && updater.constructor && updater.call && updater.apply) {
-        this.setState(prevState => updater(prevState, props))
+        this.setState(prevState => updater(prevState, props), () => {
+          callback && callback()
+        })
       } else {
-        this.setState(updater)
+        this.setState(updater, () => {
+          callback && callback()
+        })
       }
     }
   }

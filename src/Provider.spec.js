@@ -52,14 +52,25 @@ describe('Provider', () => {
         </Provider>
       )
 
+      // it returns a function
       const provider = TestUtils.findRenderedComponentWithType(tree, Provider)
       const setGlobalState = provider.createSetGlobalState({ someProp: 0 })
       expect(setGlobalState).toBeInstanceOf(Function)
 
+      const callback = jest.fn()
       const newState = { value: 1 }
+
+      // it sets the state
       setGlobalState(newState)
       expect(provider.state.value).toBe(newState.value)
+      // it calls the given callback
+      newState.value = 2
+      setGlobalState(newState, callback)
+      expect(callback).toHaveBeenCalledTimes(1)
 
+      callback.mockClear()
+      // it supports a function as parameter
+      // and calls the given callback
       setGlobalState((prevState, ownProps) => {
         expect(ownProps).toHaveProperty('someProp')
         expect(ownProps.someProp).toBe(0)
@@ -67,8 +78,9 @@ describe('Provider', () => {
         return {
           value: prevState.value + 10
         }
-      })
+      }, callback)
       expect(provider.state.value).toBe(newState.value + 10)
+      expect(callback).toHaveBeenCalledTimes(1)
     })
   })
 })

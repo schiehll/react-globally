@@ -11,6 +11,21 @@ describe('withGlobalState', () => {
     }
   }
 
+  it('should wrap the component name to indicate that it have a global state', () => {
+    // default name
+    let ChildWithGlobalState = withGlobalState(Child)
+    expect(ChildWithGlobalState.displayName).toBe(`WithGlobalState(Child)`)
+    // named component
+    const displayName = 'TheChildName'
+    Child.displayName = displayName
+
+    ChildWithGlobalState = withGlobalState(Child)
+    expect(ChildWithGlobalState.displayName).toBe(`WithGlobalState(${displayName})`)
+    // unamed Component
+    ChildWithGlobalState = withGlobalState(() => (<div />))
+    expect(ChildWithGlobalState.displayName).toBe(`WithGlobalState(Component)`)
+  })
+
   it('should pass setGlobalState function down to the wrapped component as prop', () => {
     const initialState = { value: 0 }
     const ChildWithGlobalState = withGlobalState(Child)
