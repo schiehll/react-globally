@@ -2,6 +2,7 @@
 > Gives you setGlobalState, so you can set state globally
 
 [![travis build](https://img.shields.io/travis/schiehll/react-globally.svg?style=flat-square)](https://travis-ci.org/schiehll/react-globally)
+[![Coveralls branch](https://img.shields.io/coveralls/schiehll/react-globally/master.svg?style=flat-square)](https://coveralls.io/github/schiehll/react-globally?branch=master)
 [![version](https://img.shields.io/npm/v/react-globally.svg?style=flat-square)](http://npm.im/react-globally)
 
 ## What is this?
