@@ -5,6 +5,7 @@
 [![Coveralls branch](https://img.shields.io/coveralls/schiehll/react-globally/master.svg?style=flat-square)](https://coveralls.io/github/schiehll/react-globally?branch=master)
 [![version](https://img.shields.io/npm/v/react-globally.svg?style=flat-square)](http://npm.im/react-globally)
 
+
 ## What is this?
 
 This lib gives you two things:
@@ -16,6 +17,10 @@ You receive both via props wrapping any component with the `withGlobalState` fun
 To use `withGlobalState`, you will have to wrap your app with a `Provider` that receives the initial state.
 
 This way you can use `setState` to manage the local state of a Component and `setGlobalState` to manage the global state with the same API.
+
+## Why?
+
+Read the [medium](https://medium.com/@schiehll/setting-global-state-with-react-d702236a3145).
 
 ## Key benefits
 
@@ -44,6 +49,8 @@ If you prefer to exclude react-globally from your application and use it globall
 ```
 
 ## Usage
+
+[![Edit 6l06nklwmn](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/6l06nklwmn)
 
 First you have to wrap your app with the `Provider` giving it the initial state:
 
