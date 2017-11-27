@@ -1,6 +1,6 @@
 {
   "name": "react-globally",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Gives you setGlobalState, so you can set state globally",
   "license": "MIT",
   "author": "Reinaldo Schiehll <rn.schiehll@gmail.com>",
