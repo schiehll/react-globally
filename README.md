@@ -20,7 +20,7 @@ This way you can use `setState` to manage the local state of a Component and `se
 
 ## Why?
 
-Read the [medium](https://medium.com/@schiehll/setting-global-state-with-react-d702236a3145).
+Read about it [here](https://medium.com/@schiehll/setting-global-state-with-react-d702236a3145).
 
 ## Key benefits
 
